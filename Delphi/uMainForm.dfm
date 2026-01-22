@@ -1,135 +1,82 @@
 object MainForm: TMainForm
   Left = 0
   Top = 0
-  Caption = 'MainForm'
-  ClientHeight = 483
-  ClientWidth = 606
+  BorderIcons = [biSystemMenu, biMinimize, biHelp]
+  BorderStyle = bsSingle
+  Caption = 'DevExpress Reports Localization Example'
+  ClientHeight = 111
+  ClientWidth = 411
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   TextHeight = 15
-  object btnShowDesigner: TcxButton
-    Left = 24
-    Top = 32
-    Width = 145
-    Height = 25
-    Caption = 'Show Designer'
-    TabOrder = 0
-    OnClick = btnShowDesignerClick
-  end
-  object btnViewReport: TcxButton
-    Left = 192
-    Top = 32
-    Width = 193
-    Height = 25
-    Caption = 'View Report'
+  object btnGroupDisplayDialog: TcxGroupBox
+    Left = 211
+    Top = 17
+    Caption = 'Display a Localized Report Dialog:'
     TabOrder = 1
-    OnClick = btnViewReportClick
-  end
-  object cxGrid1: TcxGrid
-    Left = 24
-    Top = 176
-    Width = 521
-    Height = 265
-    TabOrder = 2
-    object gvCategories: TcxGridDBTableView
-      DataController.DataSource = DataModule1.dsCategories
-      DataController.KeyFieldNames = 'CategoryID'
-      object gvCategoriesCategoryID: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryID'
-      end
-      object gvCategoriesCategoryName: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryName'
-      end
-      object gvCategoriesDescription: TcxGridDBColumn
-        DataBinding.FieldName = 'Description'
-      end
+    Height = 86
+    Width = 192
+    object btnDisplayReport: TcxButton
+      Left = 15
+      Top = 52
+      Width = 145
+      Height = 25
+      Caption = 'Report Viewer'
+      TabOrder = 1
+      OnClick = btnDisplayReportClick
     end
-    object gvProducts: TcxGridDBTableView
-      DataController.DataSource = DataModule1.dsProducts
-      DataController.DetailKeyFieldNames = 'CategoryID'
-      DataController.KeyFieldNames = 'ProductID'
-      DataController.MasterKeyFieldNames = 'CategoryID'
-      object gvProductsProductID: TcxGridDBColumn
-        DataBinding.FieldName = 'ProductID'
-      end
-      object gvProductsProductName: TcxGridDBColumn
-        DataBinding.FieldName = 'ProductName'
-        Width = 244
-      end
-      object gvProductsSupplierID: TcxGridDBColumn
-        DataBinding.FieldName = 'SupplierID'
-      end
-      object gvProductsCategoryID: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryID'
-      end
-      object gvProductsQuantityPerUnit: TcxGridDBColumn
-        DataBinding.FieldName = 'QuantityPerUnit'
-        Width = 124
-      end
-      object gvProductsUnitPrice: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitPrice'
-      end
-      object gvProductsUnitsInStock: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitsInStock'
-      end
-      object gvProductsUnitsOnOrder: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitsOnOrder'
-      end
-      object gvProductsReorderLevel: TcxGridDBColumn
-        DataBinding.FieldName = 'ReorderLevel'
-      end
-      object gvProductsDiscontinued: TcxGridDBColumn
-        DataBinding.FieldName = 'Discontinued'
-        Width = 34
-      end
-      object gvProductsEAN13: TcxGridDBColumn
-        DataBinding.FieldName = 'EAN13'
-        Width = 76
-      end
-    end
-    object cxGrid1Level1: TcxGridLevel
-      GridView = gvCategories
-      object cxGrid1Level2: TcxGridLevel
-        GridView = gvProducts
-      end
+    object btnDisplayDesigner: TcxButton
+      Left = 15
+      Top = 21
+      Width = 145
+      Height = 25
+      Caption = 'Report Designer'
+      TabOrder = 0
+      OnClick = btnDisplayDesignerClick
     end
   end
-  object btnSetLanguageUS: TcxButton
-    Left = 72
-    Top = 88
-    Width = 121
-    Height = 25
-    Caption = 'English'
-    TabOrder = 3
-    OnClick = btnSetLanguageUSClick
-  end
-  object btnSetLanguageDE: TcxButton
-    Left = 199
-    Top = 88
-    Width = 131
-    Height = 25
-    Caption = 'German'
-    TabOrder = 4
-    OnClick = btnSetLanguageDEClick
-  end
-  object lblSelectLanguage: TcxLabel
-    Left = 56
-    Top = 64
-    Caption = 'Select Language'
-    TabOrder = 5
+  object rbtnGroupLocalization: TcxRadioGroup
+    Left = 8
+    Top = 17
+    Caption = 'Localize Report Dialogs in:'
+    Properties.Items = <>
+    TabOrder = 0
+    Height = 86
+    Width = 185
+    object rbtnSelectEnglishLocalization: TcxRadioButton
+      Left = 16
+      Top = 25
+      Width = 113
+      Height = 17
+      Caption = 'English (en-US)'
+      TabOrder = 0
+      OnClick = rbtnSelectEnglishLocalizationClick
+    end
+    object rbtnSelectGermanLocalization: TcxRadioButton
+      Left = 16
+      Top = 56
+      Width = 113
+      Height = 17
+      Caption = 'German (de-DE)'
+      Checked = True
+      TabOrder = 1
+      TabStop = True
+      OnClick = rbtnSelectGermanLocalizationClick
+    end
   end
   object dxReport1: TdxReport
     Parameters = <>
-    Left = 48
-    Top = 128
+    Left = 416
+    Top = 32
   end
   object dxBackendDataConnectionManager1: TdxBackendDataConnectionManager
-    Left = 112
-    Top = 128
+    Left = 472
+    Top = 32
     object dxBackendDataConnectionManager1dxBackendDataSetJSONConnection1: TdxBackendDataSetJSONConnection
       DisplayName = 'DataSetConnection'
       object itmProducts: TdxBackendDataSetCollectionItem
