@@ -70,6 +70,7 @@ object MainForm: TMainForm
     end
   end
   object dxReport1: TdxReport
+    ReportName = 'Example Report'
     Parameters = <>
     Left = 416
     Top = 32
