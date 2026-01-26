@@ -18,7 +18,7 @@ This example adds German localization for DevExpress VCL dialogs:
 Both dialogs are parts of the [DevExpress Reporting Platform](https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports),
 which has full support for UI localization.
 
-Use an example project in your preferred development environment:
+Study and build an example project in your preferred development environment:
 
 - [Delphi](./Delphi)
 - [C++ Builder](./CPB)
